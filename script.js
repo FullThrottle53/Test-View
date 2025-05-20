@@ -10,4 +10,4 @@ fetch('tickers.json')
             `<li><a href="/Test-View/stats/${ticker}.html">${ticker}</a></li>`
         ).join('');
     })
-    .catch(error => console.error("Fetch Error:", error));
+    .catch(error => console.error("Fetch Error:", error));  // Notice the dot before `catch`
