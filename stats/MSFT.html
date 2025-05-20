@@ -3,5 +3,28 @@
 
 <h2>MSFT Stock Chart</h2>
 <img src="MSFT_chart.png" alt="MSFT Stock Chart">
+<h1>Microsoft (MSFT) Stock Stats</h1>
+<p>Here, we’ll display the stats you calculated in Jupyter.</p>
+
+<h2>MSFT Stock Chart</h2>
+<img src="MSFT_chart.png" alt="MSFT Stock Chart">
+
+<h2>Stock Statistics</h2>
+<p>Ticker: <span id="ticker"></span></p>
+<p>Closing Price: <span id="closing_price"></span></p>
+<p>Moving Average: <span id="moving_avg"></span></p>
+<p>Volume: <span id="volume"></span></p>
+
+<script>
+  fetch("MSFT_decomposed.json")
+    .then(response => response.json())
+    .then(data => {
+      document.getElementById("ticker").textContent = data.ticker;
+      document.getElementById("closing_price").textContent = "$" + data.closing_price.toFixed(2);
+      document.getElementById("moving_avg").textContent = "$" + data.moving_avg.toFixed(2);
+      document.getElementById("volume").textContent = data.volume.toLocaleString();
+    })
+    .catch(error => console.error("Error loading JSON:", error));
+</script>
 
 
