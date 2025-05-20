@@ -6,8 +6,8 @@ fetch('tickers.json')
         return response.json();
     })
     .then(data => {
-        console.log("Ticker Data:", data); // Log the JSON data in Developer Console
-        document.getElementById('tickerDisplay').innerHTML = data.join(', '); // Display tickers
+        document.getElementById('tickerDisplay').innerHTML = data.map(ticker => 
+            `<li><a href="/Test-View/stats/${ticker}.html">${ticker}</a></li>`
+        ).join('');
     })
     .catch(error => console.error("Fetch Error:", error));
-
